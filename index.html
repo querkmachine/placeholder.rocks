@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="We are the Crystal Gems, and we'll always put an image where you need one.">
+	<meta name="keywords" content="steven universe, su, cartoon, network, rebecca sugar, crystal, gems, gem, garnet, amethyst, pearl, peridot, lapis lazuli, jasper, diamond, design, designer, developer, development, placeholder, image, filler content, lorem ipsum, lorem pixel, lorem image, screenshot">
+	<link rel="icon" type="image/png" href="//placeholder.rocks/32">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//placeholder.rocks/152">
+	<link rel="stylesheet" href="/assets/styles.css?20190206c">
+	<title>placeholder.rocks - Steven Universe placeholder images</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<h1 aria-labelledby="title">
+				<svg width="100%" height="120" viewBox="0 0 850 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<defs>
+						<mask id="wave" x="0" y="0" width="850" height="120">
+							<path d="M -50,60 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 c 25,-12.5 25,-12.5, 50,0 c 25,12.5 25,12.5 50,0 l 0,60 L 0,120" fill="#fff"></path>
+						</mask>
+					</defs>
+					<style>
+						.heading,
+						.heading-stroke,
+						.heading-shadow,
+						.heading-overlay {
+							font-size: 3.5rem;
+							font-family: 'Crewniverse', sans-serif;
+						}
+						.heading-stroke,
+						.heading-shadow {
+							stroke-width: 1rem;
+						}
+						.heading {
+							fill: var(--header, #E8937B);
+						}
+						.heading-overlay {
+							fill: var(--header-overlay, #DD758C);
+						}
+						.heading-stroke {
+							stroke: #fff;
+							fill: #fff;
+						}
+						.heading-shadow {
+							stroke: var(--shadow, #FBF3E1);
+							fill: var(--shadow, #FBF3E1);
+						}
+					</style>
+					<text x="20" y="95" class="heading-shadow">placeholder*rocks</text>
+					<text x="20" y="85" class="heading-stroke">placeholder*rocks</text>
+					<text x="20" y="85" class="heading" id="title">placeholder*rocks</text>
+					<text x="20" y="85" class="heading-overlay" mask="url(#wave)" style="mask-position: center;">placeholder*rocks</text>
+				</svg>
+			</h1>
+			<div class="bubble subtitle">Steven Universe themed placeholder images.</div>
+		</header>
+		<main>
+			<div id="generator">
+				<div v-if="!initialized" class="bubble generator">
+					<div class="generator__preview">
+						<img class="generator__image" alt="Example image" src="//placeholder.rocks/400/300">
+					</div>
+					<div class="generator__body">
+						<div class="generator__controls">
+							<div class="generator__control">
+								<label class="generator__label" for="basicExample">Generate a 400×300 image like this:</label>
+								<input class="input" id="basicExample" type="url" readonly value="https://placeholder.rocks/400/300">
+							</div>
+							<div class="generator__control">
+								<label class="generator__label" for="greyExample">Want it in greyscale? Add <code>g</code> somewhere in the URL:</label>
+								<input class="input" id="greyExample" type="url" readonly value="https://placeholder.rocks/400/300/g">
+							</div>
+							<div class="generator__control">
+								<label class="generator__label" for="variantExample">Need variants of the same size? Add a number between 0 and 9:</label>
+								<input class="input" id="variantExample" type="url" readonly value="https://placeholder.rocks/400/300/5">
+							</div>
+						</div>
+					</div>
+				</div>
+				<template v-else>
+					<div class="bubble generator generator--enhanced">
+						<div class="generator__preview">
+							<img class="generator__image" alt="Example image" v-bind:src="generatedUrl">
+						</div>
+						<div class="generator__body">
+							<div class="generator__url">
+								<label class="generator__label" for="generatorExample">Your image URL</label>
+								<input class="input input--big" id="generatorExample" type="url" readonly v-bind:value="generatedUrl">
+							</div>
+							<div class="generator__controls">
+								<div class="generator__control">
+									<label class="generator__label" for="generatorWidth">Image width</label>
+									<input class="input" id="generatorWidth" type="number" min="1" max="2000" value="400" v-model="width" v-on:change="generateUrl()">
+								</div>
+								<div class="generator__control">
+									<label class="generator__label" for="generatorHeight">Image height</label>
+									<input class="input" id="generatorHeight" type="number" min="1" max="2000" value="300" v-model="height" v-on:change="generateUrl()">
+								</div>
+								<div class="generator__control">
+									<label class="generator__label" for="generatorVariant">Variant</label>
+									<input class="input" id="generatorVariant" type="number" min="0" max="9" value="0" v-model="variant" v-on:change="generateUrl()">
+								</div>
+								<div class="generator__control">
+									<label class="generator__label" for="generatorGrayscale">Black and white?</label>
+									<input class="checkbox" id="generatorGrayscale" type="checkbox" value="true" v-model="grayscale" v-on:change="generateUrl()">
+								</div>
+							</div>
+						</div>
+					</div>
+				</template>
+			</div>
+		</main>
+		<footer class="bubble">
+			<small><i>Steven Universe</i> is &copy; Cartoon Network. placeholder.rocks is not affiliated with Cartoon Network in any way. No copyright infringement is intended. This was <a href="http://berly.kim">made by Kim</a> and is a spin-off of <a href="//placeponi.es">placeponi.es</a>, the same thing, but with ponies. <a href="https://www.dafont.com/crewniverse.font">Crewniverse font</a> by MaxiGamer. Made of &hearts; love.</small>
+		</footer>
+	</div>
+	<!-- 
+		SECRET CHANGELOG 🤫
+		2018-08-01: Go live, with just season one images and the most basic of websites.
+		2019-02-02: I finally add some season two images. I'm busy, okay?
+		2019-02-06: Finally a real website!
+	-->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="/assets/imagegen.js?20190206c"></script>
+</body>
+</html>

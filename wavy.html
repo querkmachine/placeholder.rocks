@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app"> 
+		<svg v-bind:width="canvasWidth" v-bind:height="canvasHeight" v-bind:viewBox="'0 0' + canvasWidth + ' ' + canvasHeight" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+			<path v-bind:d="wavePath" fill="#000">
+		</svg>
+		<div>Canvas width: <input value="1000" type="number" v-model="canvasWidth"></div>
+		<div>Canvas height: <input value="100" type="number" v-model="canvasHeight"></div>
+		<div>Wave width: <input value="100" type="number" v-model="waveWidth"></div>
+		<div>Wave height: <input value="50" type="number" v-model="waveHeight"></div>
+		<div>Wave iterations: <input value="10" type="number" v-model="waveIterations"></div>
+		<code>{{ wavePath }}</code>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		const app = new Vue({
+			el: '#app',
+			data: {
+				canvasWidth: 1000,
+				canvasHeight: 100,
+				waveWidth: 100,
+				waveHeight: 50,
+				waveIterations: 10
+			},
+			mounted() {
+
+			},
+			computed: {
+				// c 50,-25 50,-25 100,0
+				// c 50,25 50,25 100,0
+				wavePath: function() {
+					const hOffset = 0 - this.waveWidth;
+					const hCentre = this.canvasHeight / 2;
+					const hHalfStep = this.waveWidth / 2;
+					const vUpStep = 0 - (this.waveHeight / 2);
+					const vDownStep = this.waveHeight / 2;
+					let pathString = `M ${hOffset},${hCentre}`;
+					for(let i = 0; i < this.waveIterations; i++) {
+						pathString += ` c ${hHalfStep},${vUpStep} ${hHalfStep},${vUpStep}, ${this.waveWidth},0 c ${hHalfStep},${vDownStep} ${hHalfStep},${vDownStep} ${this.waveWidth},0`;
+					}
+					pathString += ` l 0,${hCentre} L 0,${this.canvasHeight}`;
+					return pathString;
+				}
+			}
+		})
+	</script>
+</body>
+</html>
