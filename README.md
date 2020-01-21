@@ -1,5 +1,7 @@
 # [placeholder.rocks](https://placeholder.rocks)
 
+![A placeholder image from placeholder.rocks](https://placeholder.rocks/800/400/3)
+
 A spin off of [placeponi.es](https://github.com/querkmachine/placeponi.es) for my other cartoon obsession, *[Steven Universe](https://en.wikipedia.org/wiki/Steven_Universe)*. You should watch it, it's great.
 
 Source code made available as-is, with no guarantees as to quality or support. 
